@@ -1,34 +1,26 @@
 #---------------------------------------------------------------------------------------------#
 # Replication script for 'Political Underrepresentation Among Public Benefits Recipients: Evidence from Linked Administrative Data'
-# (Run in R version 4.2.0)
 #---------------------------------------------------------------------------------------------#
 
 #---------------------------
 # LOAD PACKAGES
 
-# Install 'groundhog' package if not already installed 
-
-groundhog_installed <- "groundhog" %in% rownames(installed.packages())
-if (groundhog_installed == FALSE) {
-  install.packages('groundhog')
-}
-library(groundhog)
-
-# Use 'groundhog' to load other packages for reproducibility
-
-pkgs <- c('cowplot', 'kableExtra', 'purrr', 'scales', 'tidyverse')
-packages.date <- '2023-03-01'
-groundhog.library(pkgs, packages.date)
+library(cowplot)
+library(kableExtra)
+library(purrr)
+library(scales)
+library(tidyverse)
 
 #---------------------------
 # SET WORKING DIRECTORY
 
-setwd("*Insert your filepath here*/Replication data package") # Put your filepath here
+setwd("C:/Users/K011014/Downloads/") # Put your filepath here
 
 #---------------------------
 # LOAD ALL DATA USED IN THIS SCRIPT
 
-files <- list.files(path = "./")
+files <- list.files(path = "./", 
+                    pattern = ".rda")
 
 walk(files, ~ load(.x, .GlobalEnv))
 
